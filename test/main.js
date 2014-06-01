@@ -1,7 +1,7 @@
 var test = require("tap").test;
 var toSpawnArgs = require("../");
 
-test("simple", function(t){
+test("long option", function(t){
     var object = {
         one: 1,
         two: 2
@@ -10,7 +10,16 @@ test("simple", function(t){
     t.end();
 });
 
-test("simple", function(t){
+test("short option", function(t){
+    var object = {
+        l: true,
+        c: "red"
+    };
+    t.deepEqual(toSpawnArgs(object), [ "-l", "-c", "red" ]);
+    t.end();
+});
+
+test("with quotes", function(t){
     var object = {
         one: 1,
         two: 2

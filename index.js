@@ -4,12 +4,23 @@ module.exports = function(object, options){
     
     for (var prop in object){
         var value = object[prop];
-        if (value){
-            output.push("--" + prop);
-            if (options.quote){
-                output.push("\"" + value + "\"");
+        if (value !== undefined){
+            if (prop.length === 1){
+                output.push("-" + prop);
+                if (value !== true){
+                    if (options.quote){
+                        output.push("\"" + value + "\"");
+                    } else {
+                        output.push(value);
+                    }
+                }
             } else {
-                output.push(value);
+                output.push("--" + prop);
+                if (options.quote){
+                    output.push("\"" + value + "\"");
+                } else {
+                    output.push(value);
+                }
             }
         }
     }

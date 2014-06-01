@@ -6,9 +6,9 @@
 #object-to-spawn-args
 Converts an options object to an array suitable for passing to `child_process.spawn()`. 
 
-Single letter object properties (e.g. `c: "red"`) convert to short-option args (e.g. `-c red`) single-dash args. Longer object properties (e.g. `colour: "red"`) convert to long-option args (e.g. `--colour red`). Object property values equalling `true` convert to flags (e.g. `-l`).
+Single letter object properties (e.g. `c: "red"`) convert to short-option args (e.g. `-c red`). Longer object properties (e.g. `colour: "red"`) convert to long-option args (e.g. `--colour red`). Object property values equalling `true` convert to flags (e.g. `-l`).
 
-This options objects:
+This options object:
 ```js
 var options = {
     l: true,

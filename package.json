@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Converts an object to a child_process.spawn args array",
   "repository": "https://github.com/75lb/object-to-spawn-args",
-  "main": "index.js",
+  "main": "lib/object-to-spawn-args.js",
   "scripts": {
     "test": "tap test/*.js"
   },

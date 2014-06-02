@@ -22,8 +22,9 @@ test("short option", function(t){
 test("with quotes", function(t){
     var object = {
         one: 1,
-        two: 2
+        two: 2,
+        three: true
     };
-    t.deepEqual(toSpawnArgs(object, { quote: true }), [ "--one", "\"1\"", "--two", "\"2\"" ]);
+    t.deepEqual(toSpawnArgs(object, { quote: true }), [ "--one", "\"1\"", "--two", "\"2\"", "--three" ]);
     t.end();
 });

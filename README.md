@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/75lb/object-to-spawn-args.svg?branch=master)](https://travis-ci.org/75lb/object-to-spawn-args)
 [![Dependency Status](https://david-dm.org/75lb/object-to-spawn-args.svg)](https://david-dm.org/75lb/object-to-spawn-args)
 
-#object-to-spawn-args
+# object-to-spawn-args
 Converts an options object to an array suitable for passing to `child_process.spawn()`. 
 
 Single letter object properties (e.g. `c: "red"`) convert to short-option args (e.g. `-c red`). Longer object properties (e.g. `colour: "red"`) convert to long-option args (e.g. `--colour red`). Object property values equalling `true` convert to flags (e.g. `-l`).
@@ -23,7 +23,7 @@ converts to
 [ "-l", "-c", "red", "--man", "pete", "--tramp" ]
 ```
 
-##Installation
+## Installation
 Move into your project directory then run: 
 ```sh
 $ npm install object-to-spawn-args --save
@@ -31,7 +31,7 @@ $ npm install object-to-spawn-args --save
 *Mac / Linux users may need to run with `sudo`*.
 
 
-##Usage
+## Usage
 ```js
 var toSpawnArgs = require("object-to-spawn-args");
 var spawn = require("child_process").spawn;

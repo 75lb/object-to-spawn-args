@@ -5,10 +5,11 @@
   "repository": "https://github.com/75lb/object-to-spawn-args",
   "main": "lib/object-to-spawn-args.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tape test/*.js"
   },
   "author": "Lloyd Brookes",
+  "license": "MIT",
   "devDependencies": {
-    "tap": "~0.7"
+    "tape": "^4.2.2"
   }
 }

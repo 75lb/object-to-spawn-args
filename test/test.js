@@ -38,3 +38,25 @@ test('with array', function (t) {
   t.deepEqual(toSpawnArgs(object), [ '--one', 1, '--two', 'eins', 'zwei', '--three' ])
   t.end()
 })
+
+test('optionEqualsValue', function (t) {
+  var object = {
+    one: 1,
+    two: "two",
+    three: true,
+    four: [ 1, 2 ]
+  }
+  t.deepEqual(toSpawnArgs(object, { optionEqualsValue: true }), [ '--one=1', '--two=two', '--three', '--four=1,2' ])
+  t.end()
+})
+
+test('optionEqualsValue: true, quote: true', function (t) {
+  var object = {
+    one: 1,
+    two: "two",
+    three: true,
+    four: [ 1, 2 ]
+  }
+  t.deepEqual(toSpawnArgs(object, { optionEqualsValue: true, quote: true }), [ '--one="1"', '--two="two"', '--three', '--four="1,2"' ])
+  t.end()
+})

@@ -12,10 +12,10 @@ Single letter object properties (e.g. `c: 'red'`) convert to short-option args (
 This options object:
 ```js
 var options = {
-    l: true,
-    c: 'red',
-    man: 'pete',
-    tramp: true
+  l: true,
+  c: 'red',
+  man: 'pete',
+  tramp: true
 }
 ```
 
@@ -38,8 +38,8 @@ var toSpawnArgs = require('object-to-spawn-args')
 var spawn = require('child_process').spawn
 
 var options = {
-    l: true,
-    a: true
+  l: true,
+  a: true
 }
 
 spawn('ls', toSpawnArgs(options), { stdio: 'inherit' })

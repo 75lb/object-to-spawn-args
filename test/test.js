@@ -42,7 +42,7 @@ test('with array', function (t) {
 test('optionEqualsValue', function (t) {
   var object = {
     one: 1,
-    two: "two",
+    two: 'two',
     three: true,
     four: [ 1, 2 ]
   }
@@ -53,7 +53,7 @@ test('optionEqualsValue', function (t) {
 test('optionEqualsValue: true, quote: true', function (t) {
   var object = {
     one: 1,
-    two: "two",
+    two: 'two',
     three: true,
     four: [ 1, 2 ]
   }

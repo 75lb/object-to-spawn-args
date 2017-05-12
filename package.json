@@ -7,6 +7,9 @@
   "scripts": {
     "test": "tape test/*.js"
   },
+  "keywords": [
+    "child_process", "spawn"
+  ],
   "author": "Lloyd Brookes",
   "license": "MIT",
   "devDependencies": {

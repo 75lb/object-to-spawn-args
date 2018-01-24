@@ -1,5 +1,5 @@
 var test = require('tape')
-var toSpawnArgs = require('../')
+var toSpawnArgs = require('./')
 
 test('long option', function (t) {
   var object = {

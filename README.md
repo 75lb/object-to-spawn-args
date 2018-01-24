@@ -47,4 +47,4 @@ spawn('ls', toSpawnArgs(options), { stdio: 'inherit' })
 
 * * *
 
-&copy; 2014-17 Lloyd Brookes <75pound@gmail.com>.
+&copy; 2014-18 Lloyd Brookes <75pound@gmail.com>.

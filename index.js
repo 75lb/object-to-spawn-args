@@ -1,9 +1,6 @@
-'use strict'
-
 /**
  * @module object-to-spawn-args
  */
-module.exports = toSpawnArgs
 
 /**
  * @param {object} - an object specifying the command-line options to set
@@ -11,14 +8,13 @@ module.exports = toSpawnArgs
  * @param [options.quote] {boolean} - enquote the option values
  * @param [options.optionEqualsValue] {boolean} - use `--option=value` notation
  */
-function toSpawnArgs (object, options) {
-  var output = []
-  options = options || {}
+function toSpawnArgs (object, options = {}) {
+  const output = []
 
-  for (var prop in object) {
-    var value = object[prop]
+  for (const prop in object) {
+    const value = object[prop]
     if (value !== undefined) {
-      var dash = prop.length === 1 ? '-' : '--'
+      const dash = prop.length === 1 ? '-' : '--'
       if (options.optionEqualsValue) {
         if (value === true) {
           output.push(dash + prop)
@@ -49,3 +45,5 @@ function toSpawnArgs (object, options) {
 function quote (value, toQuote) {
   return toQuote ? '"' + value + '"' : value
 }
+
+module.exports = toSpawnArgs

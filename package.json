@@ -4,7 +4,7 @@
   "description": "Converts an object to a child_process.spawn args array",
   "repository": "https://github.com/75lb/object-to-spawn-args",
   "scripts": {
-    "test": "tape test.js"
+    "test": "test-runner test.js"
   },
   "keywords": [
     "child_process",
@@ -13,6 +13,12 @@
   "author": "Lloyd Brookes",
   "license": "MIT",
   "devDependencies": {
-    "tape": "^4.2.2"
-  }
+    "test-runner": "^0.6.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "index.js"
+  ]
 }

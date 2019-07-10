@@ -1,62 +1,59 @@
-var test = require('tape')
-var toSpawnArgs = require('./')
+const Tom = require('test-runner').Tom
+const toSpawnArgs = require('./')
+const a = require('assert')
 
-test('long option', function (t) {
-  var object = {
+const tom = module.exports = new Tom('api')
+
+tom.test('long option', function () {
+  const object = {
     one: 1,
     two: 2
   }
-  t.deepEqual(toSpawnArgs(object), [ '--one', 1, '--two', 2 ])
-  t.end()
+  a.deepStrictEqual(toSpawnArgs(object), [ '--one', 1, '--two', 2 ])
 })
 
-test('short option', function (t) {
-  var object = {
+tom.test('short option', function () {
+  const object = {
     l: true,
     c: 'red'
   }
-  t.deepEqual(toSpawnArgs(object), [ '-l', '-c', 'red' ])
-  t.end()
+  a.deepStrictEqual(toSpawnArgs(object), [ '-l', '-c', 'red' ])
 })
 
-test('with quotes', function (t) {
-  var object = {
+tom.test('with quotes', function () {
+  const object = {
     one: 1,
     two: 2,
     three: true
   }
-  t.deepEqual(toSpawnArgs(object, { quote: true }), [ '--one', '"1"', '--two', '"2"', '--three' ])
-  t.end()
+  a.deepStrictEqual(toSpawnArgs(object, { quote: true }), [ '--one', '"1"', '--two', '"2"', '--three' ])
 })
 
-test('with array', function (t) {
-  var object = {
+tom.test('with array', function () {
+  const object = {
     one: 1,
     two: [ 'eins', 'zwei' ],
     three: true
   }
-  t.deepEqual(toSpawnArgs(object), [ '--one', 1, '--two', 'eins', 'zwei', '--three' ])
-  t.end()
+  a.deepStrictEqual(toSpawnArgs(object), [ '--one', 1, '--two', 'eins', 'zwei', '--three' ])
 })
 
-test('optionEqualsValue', function (t) {
-  var object = {
+tom.test('optionEqualsValue', function () {
+  const object = {
     one: 1,
     two: 'two',
     three: true,
     four: [ 1, 2 ]
   }
-  t.deepEqual(toSpawnArgs(object, { optionEqualsValue: true }), [ '--one=1', '--two=two', '--three', '--four=1,2' ])
-  t.end()
+  a.deepStrictEqual(toSpawnArgs(object, { optionEqualsValue: true }), [ '--one=1', '--two=two', '--three', '--four=1,2' ])
 })
 
-test('optionEqualsValue: true, quote: true', function (t) {
-  var object = {
+tom.test('optionEqualsValue: true, quote: true', function () {
+  const object = {
     one: 1,
     two: 'two',
     three: true,
     four: [ 1, 2 ]
   }
-  t.deepEqual(toSpawnArgs(object, { optionEqualsValue: true, quote: true }), [ '--one="1"', '--two="two"', '--three', '--four="1,2"' ])
-  t.end()
+  a.deepStrictEqual(toSpawnArgs(object, { optionEqualsValue: true, quote: true }), [ '--one="1"', '--two="two"', '--three', '--four="1,2"' ])
 })

@@ -10,39 +10,57 @@ Converts an options object to an array suitable for passing to `child_process.sp
 
 Single letter object properties (e.g. `c: 'red'`) convert to short-option args (e.g. `-c red`). Longer object properties (e.g. `colour: 'red'`) convert to long-option args (e.g. `--colour red`). Object property values equalling `true` convert to flags (e.g. `-l`).
 
-This options object:
+## Synopsis
+
+Simple usage:
+
 ```js
-var options = {
+> const objectToSpawnArgs = require('object-to-spawn-args')
+
+> const spawnArgs = objectToSpawnArgs({
   l: true,
   c: 'red',
-  man: 'pete',
+  name: 'pete',
   tramp: true
-}
+})
+
+> console.log(spawnArgs)
+[ '-l', '-c', 'red', '--name', 'pete', '--tramp' ]
 ```
 
-converts to
+Alternatively, convert to `--object=value` notation.
+
 ```js
-[ '-l', '-c', 'red', '--man', 'pete', '--tramp' ]
+> const options = {
+  l: true,
+  c: 'red',
+  name: 'pete',
+  tramp: true
+}
+> const spawnArgs = objectToSpawnArgs(options, { optionEqualsValue: true })
+
+> console.log(spawnArgs)
+[ '-l', '-c=red', '--name=pete', '--tramp' ]
+```
+
+Typical real-life example.
+
+```js
+const objectToSpawnArgs = require('object-to-spawn-args')
+const spawn = require('child_process').spawn
+
+const options = {
+  l: true,
+  a: true
+}
+
+spawn('ls', objectToSpawnArgs(options), { stdio: 'inherit' })
 ```
 
 ## Installation
 
 ```sh
 $ npm install object-to-spawn-args
-```
-
-## Usage
-
-```js
-var toSpawnArgs = require('object-to-spawn-args')
-var spawn = require('child_process').spawn
-
-var options = {
-  l: true,
-  a: true
-}
-
-spawn('ls', toSpawnArgs(options), { stdio: 'inherit' })
 ```
 
 * * *

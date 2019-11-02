@@ -79,3 +79,14 @@ tom.test('optionEqualsValueList 2', function () {
   const result = toSpawnArgs(object, { optionEqualsValueList: ['three'] })
   a.deepStrictEqual(result, ['--one', 1, '--two', 'two', '--three', '--four', 1, 2])
 })
+
+tom.test('optionEqualsValueExclusions', function () {
+  const object = {
+    one: 1,
+    two: 'two',
+    three: true,
+    four: [1, 2]
+  }
+  const result = toSpawnArgs(object, { optionEqualsValue: true, optionEqualsValueExclusions: ['two', 'three'] })
+  a.deepStrictEqual(result, ['--one=1', '--two', 'two', '--three', '--four=1,2'])
+})

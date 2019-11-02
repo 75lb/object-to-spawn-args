@@ -10,7 +10,8 @@
  */
 function toSpawnArgs (object, options) {
   options = Object.assign({
-    optionEqualsValueList: []
+    optionEqualsValueList: [],
+    optionEqualsValueExclusions: [],
   }, options)
   const output = []
 
@@ -18,7 +19,7 @@ function toSpawnArgs (object, options) {
     const value = object[prop]
     if (value !== undefined) {
       const dash = prop.length === 1 ? '-' : '--'
-      if (options.optionEqualsValue || options.optionEqualsValueList.includes(prop)) {
+      if ((options.optionEqualsValue && !options.optionEqualsValueExclusions.includes(prop)) || options.optionEqualsValueList.includes(prop)) {
         if (value === true) {
           output.push(dash + prop)
         } else {

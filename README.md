@@ -26,14 +26,13 @@ converts to
 ```
 
 ## Installation
-Move into your project directory then run:
-```sh
-$ npm install object-to-spawn-args --save
-```
-*Mac / Linux users may need to run with `sudo`*.
 
+```sh
+$ npm install object-to-spawn-args
+```
 
 ## Usage
+
 ```js
 var toSpawnArgs = require('object-to-spawn-args')
 var spawn = require('child_process').spawn

@@ -8,14 +8,17 @@
  * @param [options.quote] {boolean} - enquote the option values
  * @param [options.optionEqualsValue] {boolean} - use `--option=value` notation
  */
-function toSpawnArgs (object, options = {}) {
+function toSpawnArgs (object, options) {
+  options = Object.assign({
+    optionEqualsValueList: []
+  }, options)
   const output = []
 
   for (const prop in object) {
     const value = object[prop]
     if (value !== undefined) {
       const dash = prop.length === 1 ? '-' : '--'
-      if (options.optionEqualsValue) {
+      if (options.optionEqualsValue || options.optionEqualsValueList.includes(prop)) {
         if (value === true) {
           output.push(dash + prop)
         } else {

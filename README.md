@@ -1,10 +1,11 @@
 [![view on npm](http://img.shields.io/npm/v/object-to-spawn-args.svg)](https://www.npmjs.org/package/object-to-spawn-args)
 [![npm module downloads](http://img.shields.io/npm/dt/object-to-spawn-args.svg)](https://www.npmjs.org/package/object-to-spawn-args)
 [![Build Status](https://travis-ci.org/75lb/object-to-spawn-args.svg?branch=master)](https://travis-ci.org/75lb/object-to-spawn-args)
-[![Dependency Status](https://david-dm.org/75lb/object-to-spawn-args.svg)](https://david-dm.org/75lb/object-to-spawn-args)
+[![Dependency Status](https://badgen.net/david/dep/75lb/object-to-spawn-args)](https://david-dm.org/75lb/object-to-spawn-args)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
 # object-to-spawn-args
+
 Converts an options object to an array suitable for passing to `child_process.spawn()`.
 
 Single letter object properties (e.g. `c: 'red'`) convert to short-option args (e.g. `-c red`). Longer object properties (e.g. `colour: 'red'`) convert to long-option args (e.g. `--colour red`). Object property values equalling `true` convert to flags (e.g. `-l`).
@@ -47,4 +48,4 @@ spawn('ls', toSpawnArgs(options), { stdio: 'inherit' })
 
 * * *
 
-&copy; 2014-18 Lloyd Brookes <75pound@gmail.com>.
+&copy; 2014-19 Lloyd Brookes \<75pound@gmail.com\>.

@@ -1,7 +1,7 @@
 const toSpawnArgs = require('./')
-const spawn = require('child_process').spawn
 
-const options = { input: 'nogame.mkv',
+const options = {
+  input: 'nogame.mkv',
   output: 'nogame.mp4',
   encoder: 'x264',
   'encoder-preset': 'medium',
@@ -11,7 +11,8 @@ const options = { input: 'nogame.mkv',
   audio: 2,
   aencoder: 'faac',
   subtitle: 2,
-  'subtitle-burned': 2 }
+  'subtitle-burned': 2
+}
 
-const spawnArgs = toSpawnArgs(options, { optionEqualsValue: true })
-console.log(spawnArgs)
+console.log(toSpawnArgs(options, { optionEqualsValue: true }))
+console.log(toSpawnArgs(options, { optionEqualsValue: false }))

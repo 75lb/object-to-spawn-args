@@ -13,7 +13,7 @@
   "author": "Lloyd Brookes",
   "license": "MIT",
   "devDependencies": {
-    "test-runner": "^0.6.0"
+    "test-runner": "^0.6.3"
   },
   "engines": {
     "node": ">=8.0.0"
